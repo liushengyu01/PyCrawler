@@ -55,6 +55,7 @@ venv\Scripts\activate  # Windows
 source venv/bin/activate  # Linux/MacOS
 pip install -r requirements.txt
 
+# 部署签名服务需要Node.js 环境，版本大于等于16以上。
 # 启动签名服务
 python app.py
 ```
@@ -79,17 +80,17 @@ pip install -r requirements.txt
 
 ### 启动爬虫
 ```bash
-python main.py --platform [platform] --type [type]
+python main.py --platform [platform] --type [type] --keywords [搜索关键词] --download [是否下载视频图片]
 ```
 
 参数说明：
-- platform: 平台名称（xhs/douyin/bilibili/kuaishou/weibo/tieba）
+- platform: 平台名称（xhs/dy/bili/ks/wb/tieba/zhihu）
 - type: 爬取类型（search/user/等）
 
 例如：
 ```bash
-python main.py --platform xhs --type search  # 小红书搜索采集
-python main.py --platform douyin --type user  # 抖音用户采集
+python main.py --platform xhs --type search --keywords "美食" --download yes  # 小红书搜索采集
+python main.py --platform dy --type user # 抖音用户主页下载
 ```
 
 ### Docker 部署
